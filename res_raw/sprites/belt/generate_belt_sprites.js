@@ -11,7 +11,7 @@ const { fileURLToPath } = require("url");
 async function run() {
     console.log("Running");
 
-    const fps = 14;
+    const fps = 13;
     const dimensions = 192;
     const beltBorder = 23.5;
     const lineSize = 5;
