@@ -556,12 +556,12 @@ ingame:
     interactiveTutorial:
         title: Tutorial
         hints:
-            1_1_extractor: Place an <strong>extractor</strong> on top of a <strong>circle shape</strong> to extract it!
+            1_1_extractor: Place a <strong>Garbage Collector</strong> on top of a <strong>House</strong> to extract the waste!
             1_2_conveyor: >-
-                Connect the extractor with a <strong>conveyor belt</strong> to your hub!<br><br>Tip: <strong>Click and drag</strong> the belt with your mouse!
+                Connect the Garbage Collector with a <strong>Garbage Truck Road</strong> to your hub!<br><br>Tip: <strong>Click and drag</strong> the road with your mouse!
 
             1_3_expand: >-
-                This is <strong>NOT</strong> an idle game! Build more extractors and belts to finish the goal quicker.<br><br>Tip: Hold <strong>SHIFT</strong> to place multiple extractors, and use
+                This is <strong>NOT</strong> an idle game! Build more garbage collectors and roads to finish the goal quicker.<br><br>Tip: Hold <strong>SHIFT</strong> to place multiple garbage collectors, and use
                 <strong>R</strong> to rotate them.
 
             2_1_place_cutter: >-

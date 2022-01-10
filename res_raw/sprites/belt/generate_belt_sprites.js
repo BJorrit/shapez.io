@@ -13,7 +13,7 @@ async function run() {
 
     const fps = 14;
     const dimensions = 192;
-    const beltBorder = 23.5;
+    const roadBorder = 23.5;
     const lineSize = 5;
 
     const borderColor = "#91949e";
@@ -40,7 +40,7 @@ async function run() {
 
     const promises = [];
 
-    // First, generate the forward belt
+    // First, generate the forward road
     for (let i = 0; i < fps; ++i) {
         /** @type {HTMLCanvasElement} */
         const canvas = createCanvas(dimensions, dimensions);
@@ -55,7 +55,7 @@ async function run() {
         context.lineWidth = lineSize;
 
         context.beginPath();
-        context.rect(beltBorder, -10, dimensions - 2 * beltBorder, dimensions + 20);
+        context.rect(roadBorder, -10, dimensions - 2 * roadBorder, dimensions + 20);
         context.fill();
         context.stroke();
 
@@ -81,7 +81,7 @@ async function run() {
         context.quality = "best";
 
         const procentual = i / fps;
-        const innerRadius = beltBorder;
+        const innerRadius = roadBorder;
         context.clearRect(0, 0, dimensions, dimensions);
 
         context.fillStyle = fillColor;
@@ -89,12 +89,12 @@ async function run() {
         context.lineWidth = lineSize;
 
         context.beginPath();
-        context.moveTo(beltBorder, dimensions + 10);
-        context.lineTo(beltBorder, dimensions - innerRadius);
+        context.moveTo(roadBorder, dimensions + 10);
+        context.lineTo(roadBorder, dimensions - innerRadius);
 
         const steps = 256;
 
-        const outerRadius = dimensions - 2 * beltBorder;
+        const outerRadius = dimensions - 2 * roadBorder;
 
         const originX = dimensions - innerRadius;
         const originY = dimensions - innerRadius;
@@ -110,9 +110,9 @@ async function run() {
             context.lineTo(offX, offY);
         }
 
-        context.lineTo(dimensions + 10, beltBorder);
-        context.lineTo(dimensions + 10, dimensions - beltBorder);
-        context.lineTo(dimensions, dimensions - beltBorder);
+        context.lineTo(dimensions + 10, roadBorder);
+        context.lineTo(dimensions + 10, dimensions - roadBorder);
+        context.lineTo(dimensions, dimensions - roadBorder);
 
         for (let k = 0; k <= steps; ++k) {
             const pct = 1 - k / steps;
@@ -123,7 +123,7 @@ async function run() {
             context.lineTo(offX, offY);
         }
 
-        context.lineTo(dimensions - beltBorder, dimensions + 10);
+        context.lineTo(dimensions - roadBorder, dimensions + 10);
 
         context.closePath();
         context.fill();
