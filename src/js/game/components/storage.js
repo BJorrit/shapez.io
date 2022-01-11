@@ -4,6 +4,7 @@ import { Component } from "../component";
 import { typeItemSingleton } from "../item_resolver";
 import { ColorItem } from "../items/color_item";
 import { ShapeItem } from "../items/shape_item";
+import { HouseItem } from "../items/house_item";
 
 export class StorageComponent extends Component {
     static getId() {
@@ -70,6 +71,10 @@ export class StorageComponent extends Component {
                 /** @type {ShapeItem} */ (this.storedItem).definition.getHash() ===
                 /** @type {ShapeItem} */ (item).definition.getHash()
             );
+        }
+
+        if(itemType === "house"){
+            return /** @type {HouseItem} */ (this.storedItem).house === /** @type {HouseItem} */ (item).house;
         }
         return false;
     }

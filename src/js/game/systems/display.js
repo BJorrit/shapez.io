@@ -6,6 +6,7 @@ import { DisplayComponent } from "../components/display";
 import { GameSystemWithFilter } from "../game_system_with_filter";
 import { isTrueItem } from "../items/boolean_item";
 import { ColorItem, COLOR_ITEM_SINGLETONS } from "../items/color_item";
+import { HouseItem } from "../items/house_item";
 import { MapChunkView } from "../map_chunk_view";
 
 export class DisplaySystem extends GameSystemWithFilter {
@@ -84,6 +85,14 @@ export class DisplaySystem extends GameSystemWithFilter {
                         globalConfig.tileSize
                     );
                 } else if (value.getItemType() === "shape") {
+                    value.drawItemCenteredClipped(
+                        (origin.x + 0.5) * globalConfig.tileSize,
+                        (origin.y + 0.5) * globalConfig.tileSize,
+                        parameters,
+                        30
+                    );
+                }
+                else if (value.getItemType() === "house") {
                     value.drawItemCenteredClipped(
                         (origin.x + 0.5) * globalConfig.tileSize,
                         (origin.y + 0.5) * globalConfig.tileSize,

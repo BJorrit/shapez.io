@@ -6,6 +6,7 @@ import { GameSystemWithFilter } from "../game_system_with_filter";
 import { BOOL_FALSE_SINGLETON, BOOL_TRUE_SINGLETON, BooleanItem, isTruthyItem } from "../items/boolean_item";
 import { ColorItem, COLOR_ITEM_SINGLETONS } from "../items/color_item";
 import { ShapeItem } from "../items/shape_item";
+import { HouseItem } from "../items/house_item";
 import { ShapeDefinition } from "../shape_definition";
 
 export class LogicGateSystem extends GameSystemWithFilter {
@@ -294,6 +295,7 @@ export class LogicGateSystem extends GameSystemWithFilter {
     compute_PAINTER(parameters) {
         const shape = parameters[0];
         const color = parameters[1];
+        const house = parameters[2];
 
         if (!shape || !color) {
             // Empty
@@ -307,7 +309,8 @@ export class LogicGateSystem extends GameSystemWithFilter {
 
         const coloredShape = this.root.shapeDefinitionMgr.shapeActionPaintWith(
             /** @type {ShapeItem} */ (shape).definition,
-            /** @type {ColorItem} */ (color).color
+            /** @type {ColorItem} */ (color).color,
+            /** @type {HouseItem} */ (house).house
         );
 
         return this.root.shapeDefinitionMgr.getShapeItemFromDefinition(coloredShape);
@@ -340,6 +343,11 @@ export class LogicGateSystem extends GameSystemWithFilter {
             }
             case "color": {
                 return /** @type {ColorItem} */ (itemA).color === /** @type {ColorItem} */ (itemB).color
+                    ? BOOL_TRUE_SINGLETON
+                    : BOOL_FALSE_SINGLETON;
+            }
+            case "house": {
+                return /** @type {HouseItem} */ (itemA).house === /** @type {HouseItem} */ (itemB).house
                     ? BOOL_TRUE_SINGLETON
                     : BOOL_FALSE_SINGLETON;
             }

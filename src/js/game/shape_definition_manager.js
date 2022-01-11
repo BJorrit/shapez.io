@@ -209,7 +209,7 @@ export class ShapeDefinitionManager extends BasicSerializableObject {
      * @param {enumColors} color
      * @returns {ShapeDefinition}
      */
-    shapeActionPaintWith(definition, color) {
+    shapeActionPaintWith(definition, color, house) {
         const key = "paint/" + definition.getHash() + "/" + color;
         if (this.operationCache[key]) {
             return /** @type {ShapeDefinition} */ (this.operationCache[key]);
